@@ -1,12 +1,13 @@
 import streamlit as st
 import os
-from secret_key import googleapi_key
+# from secret_key import googleapi_key
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.prompts import PromptTemplate
 from youtube_transcript_api import YouTubeTranscriptApi, NoTranscriptFound, TranscriptsDisabled
 
 
-os.environ['GOOGLE_API_KEY'] = googleapi_key
+# os.environ['GOOGLE_API_KEY'] = googleapi_key
+googleapi_key = st.secrets['GOOGLE_API_KEY']
 llm = ChatGoogleGenerativeAI(model="gemini-2.5-pro")
 
 def get_youtube_transcript(video_url: str) -> str:
