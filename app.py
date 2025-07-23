@@ -7,7 +7,7 @@ from youtube_transcript_api import YouTubeTranscriptApi, NoTranscriptFound, Tran
 
 
 # os.environ['GOOGLE_API_KEY'] = googleapi_key
-googleapi_key = st.secrets['GOOGLE_API_KEY']
+googleapi_key = os.getenv('GOOGLE_API_KEY')
 llm = ChatGoogleGenerativeAI(model="gemini-2.5-pro")
 
 def get_youtube_transcript(video_url: str) -> str:
